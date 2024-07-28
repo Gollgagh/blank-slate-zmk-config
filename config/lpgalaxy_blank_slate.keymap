@@ -11,28 +11,45 @@
 
 #define SYM_L 1
 #define MET_L 2
+&lt { quick_tap_ms = <200>; };
 #define BT(n) BT_SEL n
 
 / {
     chosen {
        zmk,matrix_transform = &mit_transform;
     };
-
+    macros {
+      ZMK_MACRO(thumbs_up,
+		wait-ms = <1>;
+		tap-ms = <5>;
+                bindings = <&kp PLUS &kp COLON &kp PLUS &kp N1 &kp COLON &kp RET>;
+		)
+    };
+    tap_dances {
+    	shifty: shift_caps_word {
+		compatible = "zmk,behavior-tap-dance";
+		label = "TD_SHIFTY";
+		#binding-cells = <0>;
+		tapping-term-ms = <150>;
+		bindings = <&kp LSHFT>, <&caps_word>;
+        };
+    };
     behaviors {
         cmbng: comma_bang {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>
             bindings = <&kp COMMA>, <&kp EXCL>;
             mods = <(MOD_LSFT)>;
+            keep-mods = <(MOD_LSFT)>;
         };
         dtqmk: dot_question {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>
             bindings = <&kp DOT>, <&kp QMARK>;
             mods = <(MOD_LSFT)>;
+            keep-mods = <(MOD_LSFT)>;
         };
     };
-
     keymap {
         compatible = "zmk,keymap";
 /* Colemak
