@@ -14,25 +14,24 @@
 #define BT(n) BT_SEL n
 
 / {
-    chosen {
-       zmk,matrix_transform = &mit_transform;
-    };
     behaviors {
         cmbng: comma_bang {
             compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>
+            #binding-cells = <0>;
             bindings = <&kp COMMA>, <&kp EXCL>;
             mods = <(MOD_LSFT)>;
         };
-        dtqmk: dot_question {
+/*        dtqmk: dot_question {
             compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>
+            #binding-cells = <0>;
             bindings = <&kp DOT>, <&kp QMARK>;
             mods = <(MOD_LSFT)>;
-        };
+        }; // */
     };
-
-//    */
+    chosen {
+       zmk,matrix_transform = &mit_transform;
+    };
+//  */
     keymap {
         compatible = "zmk,keymap";
 /* Colemak
