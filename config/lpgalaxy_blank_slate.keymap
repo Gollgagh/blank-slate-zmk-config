@@ -21,12 +21,12 @@
             bindings = <&kp COMMA>, <&kp EXCL>;
             mods = <(MOD_LSFT)>;
         };
-/*        dtqmk: dot_question {
+        dtqmk: dot_question {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp DOT>, <&kp QMARK>;
             mods = <(MOD_LSFT)>;
-        }; // */
+        };
     };
     chosen {
        zmk,matrix_transform = &mit_transform;
